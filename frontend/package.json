@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "react-scripts test --colors",
+    "test": "react-scripts test --colors"
   },
   "eslintConfig": {
     "extends": [

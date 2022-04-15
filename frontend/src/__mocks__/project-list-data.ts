@@ -86,9 +86,9 @@ const filterData = (variables?: Record<string, unknown>) => () => {
     data.getProjectList.items = items.filter((i: any) => i.name.includes(variables.search));
   }
 
-  if (variables?.pageIndex && variables?.pageSize) {
-    const pageIndex = variables.pageIndex as number;
-    const pageSize = variables.pageSize as number;
+  if (variables?.page) {
+    const pageIndex = (variables.page as any).index as number;
+    const pageSize = (variables.page as any).size as number;
     const { items } = data.getProjectList;
     data.getProjectList.items = items.splice((pageIndex - 1) * pageSize, pageSize);
   }
