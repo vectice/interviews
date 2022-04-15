@@ -1,7 +1,5 @@
 input ListOrderInput {
   field: String!
-  childKey: String
-  childValue: String
   direction: OrderDirection!
 }
 

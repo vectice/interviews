@@ -13,13 +13,11 @@ describe('Page - Workspace Projects', () => {
   const mocks: MockedResponse[] = [
     getProjectListTestData(GET_PROJECT_LIST, {
       workspaceIdList: [2],
-      contributors: undefined,
       pageIndex: 1,
       pageSize: 5,
     }),
     getProjectListTestData(GET_PROJECT_LIST, {
       workspaceIdList: [2],
-      contributors: undefined,
       pageIndex: 2,
       pageSize: 5,
     }),
