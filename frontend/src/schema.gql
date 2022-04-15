@@ -1,0 +1,53 @@
+input ListOrderInput {
+  field: String!
+  childKey: String
+  childValue: String
+  direction: OrderDirection!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+input ProjectListFiltersInput {
+  search: String
+}
+
+input PageInput {
+  size: Int!
+  index: Int!
+}
+
+type PaginatedProjectResponse {
+  items: [Project!]!
+  page: PageOutput!
+  total: Int!
+}
+
+type Project {
+  updatedDate: DateTime!
+  id: Float!
+  name: String!
+  description: String
+  documentationPages: [DocumentationPage!]!
+}
+
+type DocumentationPage {
+  id: Float!
+  status: DocumentationPageStatus
+}
+
+type PageOutput {
+  index: Int!
+  size: Int!
+}
+
+type Query {
+  getProjectList(
+    order: ListOrderInput
+    filters: ProjectListFiltersInput
+    page: PageInput = { size: 30, index: 1 }
+    workspaceIdList: [Float!]!
+  ): PaginatedProjectResponse!
+}
